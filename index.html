@@ -3,170 +3,114 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Sajal — personal (cyberpunk)</title>
-<meta name="description" content="Sajal — learning, building, improving. Cyberpunk style. Single file.">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Sajal — personal</title>
+<meta name="description" content="Sajal — learning, building, improving.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#050507;
-    --panel:#0a0b10;
-    --muted:#9fb0c9;
-    --neon-cyan:#20e3ff;
-    --neon-mag:#ff2d95;
-    --accent:linear-gradient(90deg,var(--neon-cyan),var(--neon-mag));
-    --glass: rgba(255,255,255,0.03);
+    --bg:#0b0f11;
+    --muted:#9aa4b2;
+    --blue:#4da3ff;
+    --panel:#0f1416;
+    --glass: rgba(255,255,255,0.02);
+    --card-border: rgba(255,255,255,0.04);
     --radius:12px;
+    --maxw:720px;
   }
 
-  /* page reset */
+  /* reset */
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;background:radial-gradient(1200px 600px at 10% 10%, rgba(32,227,255,0.03), transparent 6%),
-            radial-gradient(900px 500px at 90% 80%, rgba(255,45,149,0.02), transparent 6%),
-            var(--bg); color:var(--neon-cyan); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; -webkit-font-smoothing:antialiased;}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--blue);-webkit-font-smoothing:antialiased}
   main{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px 20px}
 
   /* container */
-  .card{
-    width:min(920px,94%); background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
-    border-radius:var(--radius); padding:28px; border:1px solid rgba(32,227,255,0.06);
-    box-shadow:0 30px 80px rgba(0,0,0,0.7), 0 0 40px rgba(32,227,255,0.03) inset;
-    position:relative; overflow:hidden;
-  }
-
-  /* scanlines */
-  .card::before{
-    content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.008) 1px, transparent 1px);
-    background-size:100% 4px; pointer-events:none; mix-blend-mode:overlay;
-  }
-
-  /* neon top border */
-  .neon-top{
-    height:6px; margin:-8px -28px 18px; border-radius:6px; background:var(--accent);
-    filter:blur(10px); opacity:0.85;
-  }
+  .wrap{width:min(var(--maxw),96%);}
 
   /* hero */
-  .hero{display:flex;gap:22px;align-items:center}
-  .monogram{
-    width:110px;height:110px;border-radius:14px;display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);
-    box-shadow:0 12px 40px rgba(0,0,0,0.6), 0 0 30px rgba(32,227,255,0.04) inset;
-    font-family:Orbitron,monospace;font-weight:700;font-size:36px;color:var(--neon-mag);
-    position:relative; overflow:hidden;
+  .hero{display:flex;gap:16px;align-items:flex-start}
+  .mono{
+    width:86px;height:86px;border-radius:10px;background:linear-gradient(180deg,#0a0c0d,#0f1315);
+    border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-weight:600;
+    font-size:30px;color:var(--blue);flex:0 0 86px;box-shadow:0 10px 30px rgba(0,0,0,0.6);
   }
-  /* faint glitch bar */
-  .monogram::after{
-    content:""; position:absolute; left:-30%; top:0; width:160%; height:40%; background:linear-gradient(90deg, transparent, rgba(32,227,255,0.05), transparent);
-    transform:skewX(-15deg); animation:scan 3s linear infinite;
-  }
-  @keyframes scan{0%{left:-40%}50%{left:120%}100%{left:-40%}}
 
-  .title{display:flex;flex-direction:column;gap:6px}
-  h1{margin:0;font-family:Orbitron,monospace;color:var(--neon-cyan);font-size:36px;letter-spacing:0.6px;text-shadow:0 2px 18px rgba(32,227,255,0.06);}
-  .glitch{
-    display:inline-block; position:relative; color:var(--neon-cyan);
-    isolation:isolate;
-  }
-  /* two-channel glitch copy for effect */
-  .glitch::before,.glitch::after{
-    content:attr(data-text); position:absolute; left:0; top:0; width:100%; overflow:hidden;
-  }
-  .glitch::before{clip-path:polygon(0 0,100% 0,100% 45%,0 45%); transform:translate(2px,-1px); color:var(--neon-mag); opacity:0.85}
-  .glitch::after{clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%); transform:translate(-2px,1px); color:var(--neon-cyan); opacity:0.9}
-
-  .subtitle{color:var(--muted);font-size:14px;max-width:60ch;margin-top:6px;font-family:Inter}
-  .lead{color:rgba(159,176,201,0.9);margin-top:10px;max-width:64ch;line-height:1.5}
+  .col{flex:1;min-width:0}
+  h1{margin:0;font-size:28px;color:var(--blue);font-weight:600;line-height:1}
+  .subtitle{margin-top:6px;color:var(--muted);font-size:13px;max-width:48ch;white-space:nowrap;overflow:hidden;border-right:2px solid var(--blue);width:0;animation:typing 2s steps(36,end) forwards, blink .9s infinite}
+  @keyframes typing{from{width:0}to{width:220px}}
+  @keyframes blink{0%{border-color:transparent}50%{border-color:var(--blue)}100%{border-color:transparent}}
+  .lead{margin-top:12px;color:var(--muted);font-size:13px;line-height:1.6;max-width:60ch}
 
   /* links */
-  .links{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-  .pill{
-    padding:8px 12px;border-radius:999px;background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.01));
-    border:1px solid rgba(255,255,255,0.03); color:var(--neon-cyan); text-decoration:none; font-weight:600;
-    box-shadow:0 6px 18px rgba(0,0,0,0.5);
-    transition:transform .14s ease, box-shadow .14s ease;
-  }
-  .pill:hover{transform:translateY(-3px); box-shadow:0 18px 40px rgba(32,227,255,0.06), 0 0 26px rgba(255,45,149,0.03)}
+  .links{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+  .pill{padding:7px 10px;border-radius:999px;background:var(--glass);border:1px solid var(--card-border);color:var(--muted);font-size:13px;text-decoration:none}
+  .pill .accent{color:var(--blue);font-weight:600}
 
-  /* status */
-  .status{
-    margin-top:22px;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(32,227,255,0.02), rgba(255,45,149,0.01));
-    border-left:4px solid rgba(32,227,255,0.2); color:var(--muted); font-weight:600; width:100%;
-  }
+  /* small status bar */
+  .status{margin-top:20px;padding:12px 14px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.008));border-left:3px solid rgba(77,163,255,0.14);color:var(--muted);font-size:13px}
 
   /* panels */
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
-  .panel{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.007));
-         border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.03); color:#e6eef6;}
-  .panel h3{margin:0 0 10px;color:var(--neon-mag); font-family:Orbitron,monospace}
+  .panels{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
+  .panel{flex:1;min-width:220px;background:var(--panel);border-radius:10px;padding:14px;border:1px solid var(--card-border)}
+  .panel h3{margin:0 0 8px 0;font-size:14px;color:var(--blue);font-weight:600}
   .panel ul{margin:0;padding:0;list-style:none}
-  .panel li{padding:10px 6px;border-bottom:1px dashed rgba(255,255,255,0.03); font-size:14px}
+  .panel li{padding:8px 6px;border-bottom:1px dashed rgba(255,255,255,0.03);color:#e8eef6;font-size:13px}
 
-  /* footer */
-  footer{margin-top:26px;text-align:center;color:var(--muted);font-size:13px}
+  footer{text-align:center;margin-top:28px;color:var(--muted);font-size:12px}
 
-  /* neon cursor for subtitle */
-  .subtitle{position:relative}
-  .subtitle::after{
-    content:""; position:absolute; right:0; top:0; width:2px; height:100%; background:linear-gradient(180deg,var(--neon-cyan),var(--neon-mag));
-    animation:blink 1s steps(2) infinite;
-  }
-  @keyframes blink{50%{opacity:0}}
-
-  /* small screens */
-  @media(max-width:760px){
-    .grid{grid-template-columns:1fr}
-    h1{font-size:28px}
-    .monogram{width:86px;height:86px}
+  /* responsive */
+  @media (max-width:640px){
+    .hero{flex-direction:row;align-items:center}
+    h1{font-size:22px}
+    .mono{width:72px;height:72px;font-size:24px}
+    .subtitle{animation:typing 2s steps(20,end) forwards; width:160px}
   }
 </style>
 </head>
 <body>
 <main>
-  <section class="card" role="main" aria-label="Sajal cyberpunk profile">
-    <div class="neon-top" aria-hidden="true"></div>
-
-    <div class="hero" aria-hidden="false">
-      <div class="monogram" aria-hidden="true">SJ</div>
-
-      <div>
-        <h1><span class="glitch" data-text="Sajal">Sajal</span></h1>
+  <div class="wrap" role="main">
+    <header class="hero" aria-label="profile">
+      <div class="mono" aria-hidden="true">SJ</div>
+      <div class="col">
+        <h1>Sajal</h1>
         <div class="subtitle">learning, building, improving</div>
-        <div class="lead">documenting my journey in code, systems and design. neon notes and crisp micro-projects. edit links below to point at your accounts.</div>
+        <div class="lead">documenting my journey and interests. minimal, static, and fast. edit links to point at your profiles.</div>
 
-        <nav class="links" aria-label="quick links">
-          <a class="pill" href="https://github.com" target="_blank" rel="noreferrer">github</a>
-          <a class="pill" href="https://instagram.com" target="_blank" rel="noreferrer">instagram</a>
-          <a class="pill" href="#projects">projects</a>
-          <a class="pill" href="#blog">blog</a>
-          <a class="pill" href="#notes">notes</a>
+        <nav class="links" aria-label="links">
+          <a class="pill" href="#"><span class="accent">instagram</span></a>
+          <a class="pill" href="#"><span class="accent">github</span></a>
+          <a class="pill" href="#projects"><span class="accent">projects</span></a>
+          <a class="pill" href="#blog"><span class="accent">blog</span></a>
+          <a class="pill" href="#notes"><span class="accent">notes</span></a>
         </nav>
       </div>
-    </div>
+    </header>
 
     <div class="status" role="status">current status: working on myself</div>
 
-    <div class="grid" aria-label="content panels">
-      <section class="panel" id="projects" aria-labelledby="projects-title">
-        <h3 id="projects-title">projects</h3>
+    <div class="panels" aria-label="content">
+      <section class="panel" id="projects" aria-labelledby="p-title">
+        <h3 id="p-title">projects</h3>
         <ul>
-          <li><strong>Example Project</strong><div style="color:var(--muted);font-size:13px;margin-top:6px">Short description · stack</div></li>
-          <li><strong>Another Project</strong><div style="color:var(--muted);font-size:13px;margin-top:6px">Repo link · status</div></li>
+          <li><strong>Example Project</strong><div style="color:var(--muted);font-size:12px;margin-top:6px">short description · stack</div></li>
+          <li><strong>Another Project</strong><div style="color:var(--muted);font-size:12px;margin-top:6px">short description · repo</div></li>
         </ul>
       </section>
 
-      <section class="panel" id="notes" aria-labelledby="notes-title">
-        <h3 id="notes-title">learning list</h3>
+      <section class="panel" id="notes" aria-labelledby="n-title">
+        <h3 id="n-title">learning list</h3>
         <ul>
           <li>python</li>
-          <li>machine learning basics</li>
-          <li>system design</li>
+          <li>ml basics</li>
+          <li>data science</li>
           <li>web dev</li>
         </ul>
       </section>
     </div>
 
-    <footer>static cyberpunk profile — single file. save as <code>index.html</code> and publish on GitHub Pages.</footer>
-  </section>
+    <footer>static site — save as <code>index.html</code> and publish on GitHub Pages.</footer>
+  </div>
 </main>
 </body>
 </html>
