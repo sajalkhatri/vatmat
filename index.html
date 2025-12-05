@@ -383,16 +383,18 @@
   <header class="hero" aria-label="profile">
     <div class="mono" aria-hidden="true">SJ</div>
     <div class="col">
-      <h1>Sajal</h1>
-      <div class="subtitle">learning, building, improving</div>
+      <h1>Sajal Khatri</h1>
+      <div class="subtitle"> </div>
       <div class="lead">
-        documenting my journey and interests. interactive page with a live learning tracker.
+        I study law and try to be better at machine learning and Data science
       </div>
 
       <nav class="links" aria-label="external links">
-        <a class="pill" href="#"><span class="accent">instagram</span></a>
-        <a class="pill" href="#"><span class="accent">github</span></a>
-        <a class="pill" href="#"><span class="accent">mail</span></a>
+        <a class="pill" href="instagram.com/sajalkhatri"><span class="accent">instagram</span></a>
+        <a class="pill" href="github.com/sajalkhatri"><span class="accent">github</span></a>
+        <a class="pill" href="https://www.linkedin.com/in/sajal-khatri-524a1821b/"><span class="accent">Linkedin</span></a>
+        <a class="pill" href="#" onclick="openTab('contact')"><span class="accent">mail</span></a>
+
       </nav>
     </div>
   </header>
@@ -485,12 +487,31 @@
       </div>
     </div>
   </section>
+  <!-- contact buttton -->
+  <section id="tab-contact" class="section hidden">
+  <div class="panel">
+    <h2>Contact</h2>
+    <p>You can contact me through:</p>
+
+    <ul style="margin-top:10px;list-style:none;padding:0;font-size:14px;">
+      <li>📩 <a href="https://instagram.com/YOUR_USERNAME" target="_blank">Instagram DM</a></li>
+      <li>🔗 <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">LinkedIn</a></li>
+    </ul>
+
+    <p style="color:var(--muted);font-size:13px;margin-top:14px;">
+      I respond faster on Instagram.
+    </p>
+
+    <button class="btn secondary" onclick="openTab('overview')">← back</button>
+  </div>
+</section>
+<!-- space-->
 
   <footer>
     static interactive site — save as <code>index.html</code> and publish with GitHub Pages.
   </footer>
 </main>
-
+  
 <script>
   // Tabs
   const tabs = document.querySelectorAll('.tab-btn');
@@ -512,7 +533,7 @@
       });
     });
   });
-
+  
   // Learning tracker with localStorage
   const STORAGE_KEY = 'sajal_learning_v1';
   const form = document.getElementById('trackerForm');
