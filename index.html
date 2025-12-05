@@ -1,115 +1,598 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Sajal — personal</title>
-<meta name="description" content="Sajal — learning, building, improving.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0b0f11;
-    --muted:#9aa4b2;
-    --blue:#4da3ff;
-    --panel:#0f1416;
-    --glass: rgba(255,255,255,0.02);
-    --card-border: rgba(255,255,255,0.04);
-    --radius:12px;
-    --maxw:720px;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sajal — interactive</title>
+  <meta name="description" content="Sajal — learning, building, improving. Interactive site with learning tracker.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f11;
+      --muted:#9aa4b2;
+      --blue:#4da3ff;
+      --panel:#0f1416;
+      --glass:rgba(255,255,255,0.02);
+      --border:rgba(255,255,255,0.04);
+      --radius:12px;
+      --maxw:820px;
+    }
 
-  /* reset */
-  *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--blue);-webkit-font-smoothing:antialiased}
-  main{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px 20px}
+    *{box-sizing:border-box}
 
-  /* container */
-  .wrap{width:min(var(--maxw),96%);}
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:var(--bg);
+      color:var(--blue);
+      -webkit-font-smoothing:antialiased;
+    }
 
-  /* hero */
-  .hero{display:flex;gap:16px;align-items:flex-start}
-  .mono{
-    width:86px;height:86px;border-radius:10px;background:linear-gradient(180deg,#0a0c0d,#0f1315);
-    border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-weight:600;
-    font-size:30px;color:var(--blue);flex:0 0 86px;box-shadow:0 10px 30px rgba(0,0,0,0.6);
-  }
+    body{
+      display:flex;
+      justify-content:center;
+      padding:48px 20px;
+    }
 
-  .col{flex:1;min-width:0}
-  h1{margin:0;font-size:28px;color:var(--blue);font-weight:600;line-height:1}
-  .subtitle{margin-top:6px;color:var(--muted);font-size:13px;max-width:48ch;white-space:nowrap;overflow:hidden;border-right:2px solid var(--blue);width:0;animation:typing 2s steps(36,end) forwards, blink .9s infinite}
-  @keyframes typing{from{width:0}to{width:220px}}
-  @keyframes blink{0%{border-color:transparent}50%{border-color:var(--blue)}100%{border-color:transparent}}
-  .lead{margin-top:12px;color:var(--muted);font-size:13px;line-height:1.6;max-width:60ch}
+    main{
+      width:min(var(--maxw),96%);
+    }
 
-  /* links */
-  .links{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
-  .pill{padding:7px 10px;border-radius:999px;background:var(--glass);border:1px solid var(--card-border);color:var(--muted);font-size:13px;text-decoration:none}
-  .pill .accent{color:var(--blue);font-weight:600}
+    /* Hero */
 
-  /* small status bar */
-  .status{margin-top:20px;padding:12px 14px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.008));border-left:3px solid rgba(77,163,255,0.14);color:var(--muted);font-size:13px}
+    .hero{
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+    }
 
-  /* panels */
-  .panels{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
-  .panel{flex:1;min-width:220px;background:var(--panel);border-radius:10px;padding:14px;border:1px solid var(--card-border)}
-  .panel h3{margin:0 0 8px 0;font-size:14px;color:var(--blue);font-weight:600}
-  .panel ul{margin:0;padding:0;list-style:none}
-  .panel li{padding:8px 6px;border-bottom:1px dashed rgba(255,255,255,0.03);color:#e8eef6;font-size:13px}
+    .mono{
+      width:86px;
+      height:86px;
+      border-radius:10px;
+      background:linear-gradient(180deg,#0a0c0d,#0f1315);
+      border:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:600;
+      font-size:30px;
+      color:var(--blue);
+      box-shadow:0 10px 30px rgba(0,0,0,0.6);
+      flex:0 0 86px;
+    }
 
-  footer{text-align:center;margin-top:28px;color:var(--muted);font-size:12px}
+    .col{flex:1;min-width:0}
 
-  /* responsive */
-  @media (max-width:640px){
-    .hero{flex-direction:row;align-items:center}
-    h1{font-size:22px}
-    .mono{width:72px;height:72px;font-size:24px}
-    .subtitle{animation:typing 2s steps(20,end) forwards; width:160px}
-  }
-</style>
+    h1{
+      margin:0;
+      font-size:28px;
+      color:var(--blue);
+      font-weight:600;
+      line-height:1;
+    }
+
+    .subtitle{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:13px;
+      max-width:48ch;
+      white-space:nowrap;
+      overflow:hidden;
+      border-right:2px solid var(--blue);
+      width:0;
+      animation:typing 2s steps(30,end) forwards, blink .9s infinite;
+    }
+
+    @keyframes typing{
+      from{width:0}
+      to{width:220px}
+    }
+
+    @keyframes blink{
+      0%{border-color:transparent}
+      50%{border-color:var(--blue)}
+      100%{border-color:transparent}
+    }
+
+    .lead{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+      max-width:60ch;
+    }
+
+    /* Top links */
+
+    .links{
+      margin-top:14px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      padding:7px 10px;
+      border-radius:999px;
+      background:var(--glass);
+      border:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+      text-decoration:none;
+    }
+
+    .pill .accent{
+      color:var(--blue);
+      font-weight:600;
+    }
+
+    /* Tabs */
+
+    .tabs{
+      margin-top:24px;
+      display:flex;
+      gap:8px;
+      border-bottom:1px solid var(--border);
+      padding-bottom:6px;
+    }
+
+    .tab-btn{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      background:none;
+      color:var(--muted);
+      font-size:13px;
+      cursor:pointer;
+    }
+
+    .tab-btn.active{
+      background:var(--glass);
+      border-color:var(--border);
+      color:var(--blue);
+      font-weight:600;
+    }
+
+    /* Status */
+
+    .status{
+      margin-top:16px;
+      padding:10px 12px;
+      border-radius:10px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.008));
+      border-left:3px solid rgba(77,163,255,0.14);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Sections */
+
+    .section{
+      margin-top:18px;
+    }
+
+    .hidden{
+      display:none;
+    }
+
+    .panel{
+      background:var(--panel);
+      border-radius:10px;
+      padding:14px;
+      border:1px solid var(--border);
+      margin-bottom:14px;
+    }
+
+    .panel h2{
+      margin:0 0 8px 0;
+      font-size:15px;
+      color:var(--blue);
+    }
+
+    .panel p{
+      margin:4px 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Overview lists */
+
+    .two-col{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .list-box{
+      flex:1;
+      min-width:220px;
+      background:var(--panel);
+      border-radius:10px;
+      padding:14px;
+      border:1px solid var(--border);
+    }
+
+    .list-box h3{
+      margin:0 0 8px 0;
+      font-size:14px;
+      color:var(--blue);
+    }
+
+    .list-box ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .list-box li{
+      padding:8px 6px;
+      border-bottom:1px dashed rgba(255,255,255,0.03);
+      color:#e8eef6;
+      font-size:13px;
+    }
+
+    /* Learning tracker */
+
+    .tracker-form{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-bottom:10px;
+    }
+
+    .tracker-form label{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .tracker-form input,
+    .tracker-form textarea{
+      width:100%;
+      padding:7px 8px;
+      border-radius:8px;
+      border:1px solid var(--border);
+      background:#090c10;
+      color:#e8eef6;
+      font-size:13px;
+      resize:vertical;
+    }
+
+    .tracker-row{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+
+    .btn{
+      padding:7px 10px;
+      border-radius:8px;
+      border:1px solid var(--border);
+      background:var(--glass);
+      color:var(--blue);
+      font-size:13px;
+      cursor:pointer;
+    }
+
+    .btn.secondary{
+      background:none;
+      color:var(--muted);
+    }
+
+    .entries{
+      margin-top:8px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      max-height:260px;
+      overflow-y:auto;
+    }
+
+    .entry{
+      border-radius:8px;
+      border:1px solid var(--border);
+      padding:8px 9px;
+      background:#090c10;
+      font-size:13px;
+    }
+
+    .entry-title{
+      font-weight:600;
+      color:#e8eef6;
+    }
+
+    .entry-meta{
+      font-size:11px;
+      color:var(--muted);
+      margin-top:2px;
+    }
+
+    .entry-notes{
+      margin-top:4px;
+      color:#d7dee9;
+    }
+
+    .entry-actions{
+      margin-top:6px;
+      display:flex;
+      gap:6px;
+    }
+
+    .entry-actions button{
+      padding:4px 8px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:none;
+      color:var(--muted);
+      font-size:11px;
+      cursor:pointer;
+    }
+
+    .tracker-summary{
+      margin-top:4px;
+      font-size:11px;
+      color:var(--muted);
+    }
+
+    /* Projects */
+
+    .projects-list{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-top:6px;
+    }
+
+    .project-item{
+      padding:8px 9px;
+      border-radius:8px;
+      border:1px solid var(--border);
+      background:#090c10;
+      font-size:13px;
+    }
+
+    .project-item strong{
+      color:#e8eef6;
+    }
+
+    .project-item span{
+      color:var(--muted);
+      font-size:12px;
+      display:block;
+      margin-top:3px;
+    }
+
+    footer{
+      margin-top:26px;
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    @media (max-width:640px){
+      body{padding:32px 16px}
+      h1{font-size:22px}
+      .mono{width:72px;height:72px;font-size:24px}
+      .subtitle{animation:typing 2s steps(24,end) forwards;width:180px}
+    }
+  </style>
 </head>
 <body>
 <main>
-  <div class="wrap" role="main">
-    <header class="hero" aria-label="profile">
-      <div class="mono" aria-hidden="true">SJ</div>
-      <div class="col">
-        <h1>Sajal</h1>
-        <div class="subtitle">learning and trying to make my GitHub a little more lookable</div>
-        <div class="lead"> Tracking my progress here..</div>
-
-        <nav class="links" aria-label="links">
-          <a class="pill" href="#"><span class="accent">https://www.instagram.com/sajalkhatri</span></a>
-          <a class="pill" href="#"><span class="accent">https://github.com/sajalkhatri</span></a>
-          
-          <a class="pill" href="#notes"><span class="accent">notesn>https://open.spotify.com/user/ueweirmfomqb8pled762817hc?si=fb4aea8640c64a18</a>
-        </nav>
+  <header class="hero" aria-label="profile">
+    <div class="mono" aria-hidden="true">SJ</div>
+    <div class="col">
+      <h1>Sajal</h1>
+      <div class="subtitle">learning, building, improving</div>
+      <div class="lead">
+        documenting my journey and interests. interactive page with a live learning tracker.
       </div>
-    </header>
 
-    <div class="status" role="status">I study law and try to be better at machine learning and data science </div>
+      <nav class="links" aria-label="external links">
+        <a class="pill" href="#"><span class="accent">instagram</span></a>
+        <a class="pill" href="#"><span class="accent">github</span></a>
+        <a class="pill" href="#"><span class="accent">mail</span></a>
+      </nav>
+    </div>
+  </header>
 
-    <div class="panels" aria-label="content">
-      <section class="panel" id="projects" aria-labelledby="p-title">
-        <h3 id="p-title">projects</h3>
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="overview" role="tab" aria-selected="true">overview</button>
+    <button class="tab-btn" data-tab="learning" role="tab" aria-selected="false">learning</button>
+    <button class="tab-btn" data-tab="projects" role="tab" aria-selected="false">projects</button>
+  </div>
+
+  <div class="status" role="status">current status: working on myself</div>
+
+  <!-- OVERVIEW TAB -->
+  <section id="tab-overview" class="section">
+    <div class="two-col">
+      <div class="list-box">
+        <h3>interests</h3>
         <ul>
-          <li><strong> Project</strong><div style="color:var(--muted);font-size:12px;margin-top:6px"> </div></li>
-          <li><strong> Project 2</strong><div style="color:var(--muted);font-size:12px;margin-top:6px"> </div></li>
+          <li>machine learning</li>
+          <li>systems & infra</li>
+          <li>design & aesthetics</li>
+          <li>psychology</li>
         </ul>
-      </section>
+      </div>
 
-      <section class="panel" id="notes" aria-labelledby="n-title">
-        <h3 id="n-title">learning list</h3>
+      <div class="list-box">
+        <h3>learning focus</h3>
         <ul>
           <li>python</li>
           <li>ml basics</li>
           <li>data science</li>
           <li>web dev</li>
         </ul>
-      </section>
+      </div>
     </div>
+  </section>
 
-    <footer> <code> </code> </footer>
-  </div>
+  <!-- LEARNING TAB -->
+  <section id="tab-learning" class="section hidden">
+    <div class="panel">
+      <h2>learning tracker</h2>
+      <p>Add what you learned. It saves in this browser using localStorage.</p>
+
+      <form class="tracker-form" id="trackerForm">
+        <div>
+          <label for="learnTitle">what did you learn?</label>
+          <input id="learnTitle" type="text" placeholder="e.g. finished python loops" required>
+        </div>
+        <div>
+          <label for="learnNotes">notes (optional)</label>
+          <textarea id="learnNotes" rows="2" placeholder="key ideas, resources, links"></textarea>
+        </div>
+        <div class="tracker-row">
+          <label for="learnEffort" style="flex:1;font-size:12px;color:var(--muted)">effort</label>
+          <select id="learnEffort" style="flex:2;padding:6px 8px;border-radius:8px;border:1px solid var(--border);background:#090c10;color:#e8eef6;font-size:13px;">
+            <option value="3">high (3+ hrs)</option>
+            <option value="2">medium (1–3 hrs)</option>
+            <option value="1">low (&lt;1 hr)</option>
+          </select>
+        </div>
+        <div class="tracker-row">
+          <button type="submit" class="btn">add entry</button>
+          <button type="button" class="btn secondary" id="clearEntries">clear all</button>
+        </div>
+      </form>
+
+      <div class="tracker-summary">
+        entries: <span id="entryCount">0</span> · effort total: <span id="effortTotal">0</span>
+      </div>
+
+      <div class="entries" id="entries"></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS TAB -->
+  <section id="tab-projects" class="section hidden">
+    <div class="panel">
+      <h2>projects</h2>
+      <p>Static placeholders. Replace with your real projects / links.</p>
+
+      <div class="projects-list">
+        <div class="project-item">
+          <strong>example project</strong>
+          <span>short description · stack · link</span>
+        </div>
+        <div class="project-item">
+          <strong>another project</strong>
+          <span>short description · repo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    static interactive site — save as <code>index.html</code> and publish with GitHub Pages.
+  </footer>
 </main>
+
+<script>
+  // Tabs
+  const tabs = document.querySelectorAll('.tab-btn');
+  const sections = {
+    overview: document.getElementById('tab-overview'),
+    learning: document.getElementById('tab-learning'),
+    projects: document.getElementById('tab-projects')
+  };
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      tabs.forEach(b => {
+        b.classList.toggle('active', b === btn);
+        b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+      });
+      Object.keys(sections).forEach(key => {
+        sections[key].classList.toggle('hidden', key !== tab);
+      });
+    });
+  });
+
+  // Learning tracker with localStorage
+  const STORAGE_KEY = 'sajal_learning_v1';
+  const form = document.getElementById('trackerForm');
+  const entriesEl = document.getElementById('entries');
+  const countEl = document.getElementById('entryCount');
+  const effortEl = document.getElementById('effortTotal');
+  const clearBtn = document.getElementById('clearEntries');
+
+  function loadEntries(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }catch(e){
+      return [];
+    }
+  }
+
+  let entries = loadEntries();
+
+  function saveEntries(){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+    renderEntries();
+  }
+
+  function renderEntries(){
+    entriesEl.innerHTML = '';
+    if(entries.length === 0){
+      entriesEl.innerHTML = '<div style="font-size:12px;color:var(--muted);">no entries yet.</div>';
+    }else{
+      entries.forEach(e => {
+        const div = document.createElement('div');
+        div.className = 'entry';
+        div.innerHTML = `
+          <div class="entry-title">${e.title}</div>
+          <div class="entry-meta">${e.date} · effort: ${e.effort}</div>
+          ${e.notes ? `<div class="entry-notes">${e.notes}</div>` : ''}
+        `;
+        const actions = document.createElement('div');
+        actions.className = 'entry-actions';
+        const del = document.createElement('button');
+        del.textContent = 'delete';
+        del.addEventListener('click', () => {
+          entries = entries.filter(x => x.id !== e.id);
+          saveEntries();
+        });
+        actions.appendChild(del);
+        div.appendChild(actions);
+        entriesEl.appendChild(div);
+      });
+    }
+    countEl.textContent = entries.length;
+    effortEl.textContent = entries.reduce((sum,x) => sum + (x.effort || 0), 0);
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const title = document.getElementById('learnTitle').value.trim();
+    const notes = document.getElementById('learnNotes').value.trim();
+    const effort = Number(document.getElementById('learnEffort').value) || 1;
+    if(!title) return;
+    const today = new Date().toISOString().slice(0,10);
+    entries.unshift({
+      id: Date.now(),
+      title,
+      notes,
+      effort,
+      date: today
+    });
+    document.getElementById('learnTitle').value = '';
+    document.getElementById('learnNotes').value = '';
+    saveEntries();
+  });
+
+  clearBtn.addEventListener('click', () => {
+    if(!confirm('clear all entries?')) return;
+    entries = [];
+    saveEntries();
+  });
+
+  renderEntries();
+</script>
 </body>
 </html>
